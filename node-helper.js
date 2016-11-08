@@ -1,7 +1,7 @@
 /*eslint-env node */
 /*
 this is called node-helper as node already has an utility
-it has simple helper functions
+a single javascript file to make the repeating node js stuff a one liner. No outside dependencies wanted here
 
 look a the end of this file to see what's available
 */
@@ -85,7 +85,7 @@ function saveFile(filePath, data){
 		});
 	});
 }
-//--fs helper------------------------------------
+/*--fs helper------------------------------------------------------------------*/
 function checkFile(filePath, callback){
 	fs.stat(filePath, function(err, stat) {
 		if(err === null) {
@@ -146,7 +146,7 @@ function getValidString(value){
 	}
 	return '.';
 }
-//--Is--
+
 function isEmpty (str) {
     return !str || 0 === str.length;
 }
@@ -167,7 +167,6 @@ function log(text){
 	}
 }
 
-//--end if .is...
 function showData(data, comment, delay){
 	if(delay){
 		sleep(delay);
@@ -189,7 +188,6 @@ function showData(data, comment, delay){
 	}
 }
 
-//--Helper
 function sleep(delay, comment) {
 	var sleeping = ' ...sleeping ' + delay;
 	if(comment){
@@ -202,17 +200,17 @@ function sleep(delay, comment) {
 }
 
 module.exports = {
-  copyFileOnce:					copyFileOnce,
-	getTimeStamp:					getTimeStamp,
-  getUserHome:          getUserHome,
-  getValidInteger:      getValidInteger,
-  getValidString:       getValidString,
-	isDirSync:						isDirSync,
-  isEmpty:              isEmpty,
-  isINT:                isINT,
-  loadFile:             loadFile,
-  log:									log,
-  mkDirOnce:            mkDirOnce,
-  saveFile:             saveFile,
-  showData:             showData
+  copyFileOnce:		copyFileOnce,
+  getTimeStamp:		getTimeStamp,
+  getUserHome:      getUserHome,
+  getValidInteger:  getValidInteger,
+  getValidString:   getValidString,
+  isDirSync:		isDirSync,
+  isEmpty:          isEmpty,
+  isINT:            isINT,
+  loadFile:         loadFile,
+  log:	     		log,
+  mkDirOnce:        mkDirOnce,
+  saveFile:         saveFile,
+  showData:         showData
 };
