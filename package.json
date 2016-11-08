@@ -1,0 +1,24 @@
+{
+  "name": "node-helper",
+  "version": "1.0.0",
+  "description": "a single javascript file to make the repeating node js stuff a one liner. No outside dependencies wanted here",
+  "main": "node-helper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkuehn/node-helper.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "javascript"
+  ],
+  "author": "Volker Kuehn <vkuehn@more-machines.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vkuehn/node-helper/issues"
+  },
+  "homepage": "https://github.com/vkuehn/node-helper#readme"
+}
