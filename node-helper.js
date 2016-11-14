@@ -1,7 +1,8 @@
 /*eslint-env node */
 /*
 this is called node-helper as node already has an utility
-a single javascript file to make the repeating node js stuff a one liner. No outside dependencies wanted here
+a single javascript file to make the repeating node js stuff a one liner.
+No outside node dependencies wanted here !
 
 look a the end of this file to see what's available
 */
@@ -26,7 +27,9 @@ function copyFileOnce(sourceFile, destinationFile, callback){
 		try{
 			fs.statSync(sourceFile);
 			fs.writeFileSync(destinationFile, fs.readFileSync(sourceFile));
-			if (callback) callback('copyFileOnce: copied ' + sourceFile + ' to ' + destinationFile);
+			if (callback) {
+				callback('copyFileOnce: copied ' + sourceFile + ' to ' + destinationFile);
+			}
 			success = true;
 		}catch (err) {
 			if (callback) {
@@ -85,31 +88,71 @@ function saveFile(filePath, data){
 		});
 	});
 }
+
 /*--fs helper------------------------------------------------------------------*/
 function checkFile(filePath, callback){
 	fs.stat(filePath, function(err, stat) {
 		if(err === null) {
 			callback();
 		} else if(err.code === 'ENOENT') {
-			console.log('creating file ' + filePath);
 			fs.writeFile(filePath, {flag: 'wx'}, function (err, data) {
                 callback();
             });
 		} else {
-			console.log('Some other error: ', err.code);
+			console.error('Some other error: ', err.code);
 		}
 	});
 }
+
 function loadFileSynch (filePath){
 	var data = '';
 	try {
 		data = fs.readFileSync(filePath);
 	} catch (err) {
-		console.log('error: loading file', err.code);
+		console.error('error: loading file', err.code);
 	}
 	return data;
 }
+
 /*--Other------------------------------------------------------------------*/
+function isEmpty (str) {
+    return !str || 0 === str.length;
+}
+function isINT (value) {
+  return !isNaN(value) && parseInt(Number(value)) === value && !isNaN(parseInt(value));
+}
+
+function isRunning(process){
+	try {
+		return process.kill(pid,0);
+	}
+	catch (e) {
+		return e.code === 'EPERM';
+	}
+}
+
+function isWindows(){
+	var windows = false;
+	var plattform = (process.platform).substring(0,3);
+	if(plattform === 'win'){ windows = true ;}
+	return windows;
+}
+
+function log(text){
+	var timeStamp  = getTimeStamp();
+	var logString = '';
+	try {
+		if(text){
+			logString = ('[LOG] ' + timeStamp + ' ' + text);
+		}else {
+			logString = ('[LOG] ' + timeStamp);
+		}
+		console.log(logString.toString('utf8'));
+	} catch (error) {
+		console.error('[LOG] ' + timeStamp + ' ' + 'error: ' + error);
+	}
+}
+
 function getTimeStamp(){
 	var today = new Date();
 	var h = today.getHours();
@@ -122,7 +165,7 @@ function getTimeStamp(){
 function getUserHome() {
   var uDir = process.env.USERPROFILE;
   if (getValidString(uDir) === '.'){
-    uDir = process.env['HOME'];
+    uDir = process.env.HOME;
   }
   uDir = getValidString(uDir);
   return uDir;
@@ -147,24 +190,39 @@ function getValidString(value){
 	return '.';
 }
 
-function isEmpty (str) {
-    return !str || 0 === str.length;
-}
-function isINT (value) {
-  return !isNaN(value) && parseInt(Number(value)) === value && !isNaN(parseInt(value));
-}
+function runCommand(cmd, args, opts){
+	var pid = '';
 
-function log(text){
-	var timeStamp  = getTimeStamp();
-	try {
-		if(text){
-			console.log('[LOG] ' + timeStamp + ' ' + text);
-		}else {
-			console.log('[LOG] ' + timeStamp);
-		}
-	} catch (error) {
-		console.log('[LOG] ' + timeStamp + ' ' + 'error: ' + error);
+	opts = opts || {};
+
+//if not detached and your main process dies, the child will be killed too
+	if(!opts.detached){
+			opts.detached = false ;
 	}
+//inherit - [process.stdin, process.stdout, process.stderr] or [0,1,2]
+	if(!opts.stdio){
+		opts.stdio = 'inherit';
+	}
+
+	try{
+		var child_process = require('child_process');
+		var command = child_process.spawn(cmd, args, opts);
+		pid = command.pid;
+		log('runCommand spawned ' + cmd + ' with pid ' + pid);
+
+		command.on('close', (code,signal)  => { if(signal){
+	          log('Terminated by ' + signal); }});
+
+		command.on('error', (error) => { log('Error: ' + error.message); });
+		command.on('exit', (code) => { success = code.toString(); });
+
+		process.on('uncaughtException', (err) => {
+		  log('Uncaught Error: ' + err.message);
+		});
+	}catch(error){
+		log('runCommand error ' + error);
+	}
+	return pid;
 }
 
 function showData(data, comment, delay){
@@ -184,7 +242,7 @@ function showData(data, comment, delay){
 			}
 		}
 	} catch (error) {
-		console.log("Showing data caused error: " + error);
+		console.error("Showing data caused error: " + error);
 	}
 }
 
@@ -200,17 +258,21 @@ function sleep(delay, comment) {
 }
 
 module.exports = {
-  copyFileOnce:		copyFileOnce,
-  getTimeStamp:		getTimeStamp,
+  copyFileOnce:     copyFileOnce,
+  getTimeStamp:     getTimeStamp,
   getUserHome:      getUserHome,
   getValidInteger:  getValidInteger,
   getValidString:   getValidString,
-  isDirSync:		isDirSync,
+  isDirSync:        isDirSync,
   isEmpty:          isEmpty,
   isINT:            isINT,
+	isRunning:				isRunning,
+	isWindows:        isWindows,
   loadFile:         loadFile,
-  log:	     		log,
+  log:              log,
   mkDirOnce:        mkDirOnce,
+	runCommand:       runCommand,
   saveFile:         saveFile,
+	sleep:            sleep,
   showData:         showData
 };
