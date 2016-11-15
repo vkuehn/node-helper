@@ -81,9 +81,9 @@ function mkDirOnce (dirPath, callback) {
 
 function saveFile(filePath, data){
 	checkFile(filePath, function(){
-		fs.writeFile(filePath, data,  function(err) {
-		   if (err) {
-			   console.error(err);
+		fs.writeFile(filePath, data, (error) = {
+		   if (error) {
+			   console.error(error);
 		   }
 		});
 	});
@@ -266,13 +266,13 @@ module.exports = {
   isDirSync:        isDirSync,
   isEmpty:          isEmpty,
   isINT:            isINT,
-	isRunning:				isRunning,
-	isWindows:        isWindows,
+  isRunning:        isRunning,
+  isWindows:        isWindows,
   loadFile:         loadFile,
   log:              log,
   mkDirOnce:        mkDirOnce,
-	runCommand:       runCommand,
+  runCommand:       runCommand,
   saveFile:         saveFile,
-	sleep:            sleep,
+  sleep:            sleep,
   showData:         showData
 };
