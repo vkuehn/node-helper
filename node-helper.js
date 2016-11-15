@@ -3,8 +3,9 @@
 this is called node-helper as node already has an utility
 a single javascript file to make the repeating node js stuff a one liner.
 No outside node dependencies wanted here !
-
 look a the end of this file to see what's available
+
+Tested on windows and Linux...sorry no darwin yet..
 */
 var fs = require("fs");
 
@@ -15,7 +16,7 @@ function copyFileOnce(sourceFile, destinationFile, callback){
 		if (callback) callback('copyFileOnce: ' + sourceFile + 'is a directory');
 	}
 	if(isDirSync(destinationFile)) {
-		if (callback) callback('copyFileOnce: ' + destinationFile + ' is a Directory');
+		if (callback) callback('copyFileOnce: '+ destinationFile +' is a Directory');
 	}
 	try{
 	  fs.statSync(destinationFile);
@@ -179,27 +180,22 @@ function getValidInteger(value) {
 }
 
 function getValidString(value){
-	if (typeof value === 'undefined' || !value)  {
-    return '.';
-	}
+	if (typeof value === 'undefined' || !value)  { return '.';	}
 	if(Boolean(value)){
-			if(!isEmpty(value)){
-				return value;
-			}
+			if(!isEmpty(value)){ return value; }
 	}
-	return '.';
+  return '.';
 }
 
 function runCommand(cmd, args, opts){
 	var pid = '';
-
 	opts = opts || {};
 
-//if not detached and your main process dies, the child will be killed too
+  //if not detached and your main process dies, the child will be killed too
 	if(!opts.detached){
 			opts.detached = false ;
 	}
-//inherit - [process.stdin, process.stdout, process.stderr] or [0,1,2]
+  //inherit - [process.stdin, process.stdout, process.stderr] or [0,1,2]
 	if(!opts.stdio){
 		opts.stdio = 'inherit';
 	}
@@ -234,15 +230,15 @@ function showData(data, comment, delay){
 			if(!comment){
 				comment = '';
 			}
-			console.log('data ' + comment);
+			log('data ' + comment);
 			if(data !== undefined){
-				console.log(data.toString());
+				log(data.toString());
 			} else {
-				console.log('undefined');
+				log('undefined');
 			}
 		}
 	} catch (error) {
-		console.error("Showing data caused error: " + error);
+		console.error("showData data caused error: " + error);
 	}
 }
 
