@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/vkuehn/node-helper/issues"
   },
-  "homepage": "https://github.com/vkuehn/node-helper#readme"
+  "homepage": "https://github.com/vkuehn/node-helper#readme",
+  "dependencies": {
+    "util": "^0.10.3"
+  }
 }
