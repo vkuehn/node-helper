@@ -5,5 +5,5 @@ helper.log('test');
 
 helper.log(helper.getLocalIPs());
 
-var rs = new helper.RunScript();
+var rs = new helper.runScript();
 rs.start('../test/forkMe.js');
