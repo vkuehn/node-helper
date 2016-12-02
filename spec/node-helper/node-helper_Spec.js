@@ -72,3 +72,11 @@ describe("Helper isRunning", function() {
 		expect(helper.isRunning(pid)).toBe(true);
 	});
 });
+
+describe("Helper runScript", function() {
+	it("is giving result", function(){
+		var rs = new helper.runScript();
+		var result = rs.start('runMe.js');
+		helper.log('runScript result ' + result);
+	});
+});
