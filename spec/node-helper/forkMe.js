@@ -21,10 +21,10 @@ ForkMe.prototype.start = function () {
 };
 
 ForkMe.prototype.sendMessageToMaster = function () {
-	var uptime = process.uptime();
-	var message = 'Process ['+this.pid+'], uptime '+uptime+'s';
-	process.send({ info: message });
-  process.send({ info: this.doSemthing() });
+    var uptime = process.uptime();
+    var message = 'Process ['+this.pid+'], uptime '+uptime+'s';
+    process.send({ info: message });
+    process.send({ info: this.doSemthing() });
 };
 
 process.on('disconnect',function() {

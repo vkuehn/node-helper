@@ -76,7 +76,8 @@ describe("Helper isRunning", function() {
 describe("Helper runScript", function() {
 	it("is giving result", function(){
 		var rs = new helper.runScript();
-		var result = rs.start('runMe.js');
+		var result = rs.start('./forkMe.js');
 		helper.log('runScript result ' + result);
+		expect(result).toBe('success');
 	});
 });
