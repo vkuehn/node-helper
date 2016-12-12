@@ -15,7 +15,7 @@ it provides these functions
   getValidString
   isDirSync
   isEmpty
-  isINTisINT
+  isINT
   isRunning
   isWindows
   loadFile
