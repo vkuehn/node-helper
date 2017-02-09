@@ -7,6 +7,7 @@ node-helper.js can be found in lib directory.
 it provides these functions
 
   copyFileOnce
+  
   getFileList
   getLocalIPs
   getTimeStamp
