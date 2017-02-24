@@ -4,7 +4,7 @@
   "description": "a single module to make the repeating node js stuff a one liner",
   "main": "node-helper.js",
   "scripts": {
-	  "test": "jasmine-node spec"
+    "test": "jasmine-node spec"
   },
   "repository": {
     "type": "git",
@@ -23,12 +23,13 @@
   },
   "homepage": "https://github.com/vkuehn/node-helper#readme",
   "devDependencies": {
-	    "jasmine": "^2.5.2",
-	    "jasmine-node": "^1.14.5"
-	  },
+    "eslint": "^3.16.1",
+    "jasmine": "^2.5.2",
+    "jasmine-node": "^1.14.5"
+  },
   "dependencies": {
-	  "eventemitter2": "^2.1.3",
-	  "nodeunit": "^0.10.2",
-	  "util": "^0.10.3"
+    "eventemitter2": "^2.1.3",
+    "nodeunit": "^0.10.2",
+    "util": "^0.10.3"
   }
 }
