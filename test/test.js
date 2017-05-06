@@ -1,17 +1,14 @@
 //TODO realy do some testing with asserts
-var helper = require('../lib/node-helper.js');
+//let helper = require('../lib/node-helper.js');
+const debug = require('debug')('worker');
 
-helper.log('test');
+setInterval(function(){
+  debug('doing some work');
+}, 1000);
 
-helper.log(helper.getLocalIPs());
-
-var rs = new helper.runScript();
+/*
+ helper.getLocalIPs();
+debug('runscript');
+const rs = new helper.runScript();
 rs.start('../test/forkMe.js');
-
-//true
-var running = helper.isRunning(3448);
-helper.log('Running ' + running);
-
-//false
-running = helper.isRunning(1);
-helper.log('Running ' + running);
+*/

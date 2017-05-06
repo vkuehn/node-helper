@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/vkuehn/node-helper#readme",
   "devDependencies": {
+    "debug": "^2.6.6",
     "eslint": "^3.16.1",
     "jasmine": "^2.5.2",
     "jasmine-node": "^1.14.5"
