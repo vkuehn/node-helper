@@ -63,22 +63,3 @@ describe('Helper isINT', function() {
     expect(helper.isINT(42)).toBe(true);
   });
 });
-
-describe('Helper isRunning', function() {
-  it('gives false if searched for pid 111', function(){
-    expect(helper.isRunning(111)).toBe(false);
-  });
-  it('gives true if searched for correct pid ', function(){
-    const pid = process.pid;
-    expect(helper.isRunning(pid)).toBe(true);
-  });
-});
-
-describe('Helper runScript', function() {
-  it('is giving result', function(){
-    const rs = new helper.runScript();
-    const result = rs.start('./forkMe.js');
-    helper.log('runScript result ' + result);
-    expect(result).toBe('success');
-  });
-});
