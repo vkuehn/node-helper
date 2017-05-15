@@ -1,4 +1,5 @@
 
+/*eslint-env node, jasmine */
 const fs = require('fs');
 const helper = require('../../lib/node-helper');
 let debug = require('debug')('jasmineTest');
@@ -44,7 +45,7 @@ describe('Helper getLocalIPs', function () {
     expect(ips).toContain(ip4LocalHost);
   });
   it('wil always contain the ipv6 localhost', function () {
-    expect(ips).toContain(ip4LocalHost);
+    expect(ips).toContain(ip6LocalHost);
   });
 });
 
