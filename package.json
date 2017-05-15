@@ -25,7 +25,6 @@
   "devDependencies": {
     "debug": "^2.6.6",
     "eslint": "^3.16.1",
-    "eslint-plugin-jasmine": "^2.2.0",
     "jasmine": "^2.5.2",
     "jasmine-node": "^1.14.5"
   },
