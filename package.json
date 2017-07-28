@@ -26,7 +26,8 @@
     "debug": "^2.6.6",
     "eslint": "^3.16.1",
     "jasmine": "^2.5.2",
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^1.14.5",
+    "jasmine-reporters": "^2.2.1"
   },
   "dependencies": {
     "eventemitter2": "^2.1.3",

@@ -3,6 +3,13 @@ const fs = require('fs');
 const helper = require('../../lib/node-helper');
 let debug = require('debug')('jasmineTest');
 
+var reporters = require('jasmine-reporters');
+var junitReporter = new reporters.JUnitXmlReporter({
+  savePath: __dirname,
+  consolidateAll: false
+});
+
+
 function deletTempFile(fileName){
   fs.unlink(fileName, (err) => {
     if (err) throw err;
