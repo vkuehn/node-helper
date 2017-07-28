@@ -10,7 +10,6 @@ var junitReporter = new reporters.JUnitXmlReporter({
   consolidateAll: false
 });
 
-
 function deletTempFile(fileName){
   fs.unlink(fileName, (err) => {
     if (err) throw err;

@@ -1,1 +1,2 @@
-var node-helper = requiere('./lib/node-helper');
+var helper = require('./lib/node-helper');
+console.log(helper.showData('hello world'));
