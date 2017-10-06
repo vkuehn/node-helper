@@ -14,8 +14,6 @@ it provides these functions
   
   getTimeStamp
   
-  getUserHome
-  
   getValidInteger
   
   getValidString
@@ -32,14 +30,8 @@ it provides these functions
   
   loadFile
   
-  log
-  
   mkDirOnce
-  
-  runCommand
-  
-  runScript
-  
+
   saveFile
   
   sleep
