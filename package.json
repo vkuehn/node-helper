@@ -1,7 +1,7 @@
 {
   "name": "node-helper",
-  "version": "0.0.2",
-  "description": "a single module to make the repeating node js stuff a one liner",
+  "version": "0.1.0",
+  "description": "a simple module to make the repeating node js stuff a one liner",
   "main": "node-helper.js",
   "scripts": {
     "test": "jasmine-node spec"
@@ -16,7 +16,7 @@
     "javascript",
     "helper"
   ],
-  "author": "Volker Kuehn <vkuehn@web.de>",
+  "author": "Volker Kuehn 9700C52A@email.de",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vkuehn/node-helper/issues"
@@ -28,10 +28,5 @@
     "jasmine": "^2.5.2",
     "jasmine-node": "^1.14.5",
     "jasmine-reporters": "^2.2.1"
-  },
-  "dependencies": {
-    "eventemitter2": "^2.1.3",
-    "nodeunit": "^0.10.2",
-    "util": "^0.10.3"
   }
 }
