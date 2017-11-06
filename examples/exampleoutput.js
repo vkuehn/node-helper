@@ -1,6 +1,6 @@
 
 //some simple examples
-var helper = require('../lib/node-helper');
+var helper = require('../node-helper');
 
 //Hellow World
 helper.log('hello');

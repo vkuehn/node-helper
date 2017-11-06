@@ -1,7 +1,7 @@
 
 /*eslint-env node, jasmine */
 const fs = require('fs');
-const helper = require('../../lib/node-helper');
+const helper = require('../../node-helper');
 let debug = require('debug')('jasmineTest');
 
 const reporters = require('jasmine-reporters');

@@ -1,6 +1,6 @@
 {
   "name": "node-helper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a simple module to make the repeating node js stuff a one liner",
   "main": "node-helper.js",
   "scripts": {
