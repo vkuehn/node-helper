@@ -4,8 +4,8 @@ const fs = require('fs');
 const helper = require('../../lib/node-helper');
 let debug = require('debug')('jasmineTest');
 
-var reporters = require('jasmine-reporters');
-var junitReporter = new reporters.JUnitXmlReporter({
+const reporters = require('jasmine-reporters');
+let junitReporter = new reporters.JUnitXmlReporter({
   savePath: __dirname,
   consolidateAll: false
 });

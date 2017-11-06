@@ -24,8 +24,6 @@ it provides these functions
   
   isINT
   
-  isRunning
-  
   isWindows
   
   loadFile
