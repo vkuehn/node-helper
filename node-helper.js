@@ -11,7 +11,7 @@ Tested on windows,linux and mac
 const fs            = require('fs');
 const os            = require('os');
 
-let status = '';
+let status = 'none';
 
 /*--File System---------------------------------------------------------*/
 function copyFileOnce(sourceFile, destinationFile, callback){
