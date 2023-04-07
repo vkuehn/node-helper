@@ -2,9 +2,6 @@
 //some simple examples
 var helper = require('../node-helper');
 
-//Hellow World
-helper.log('hello');
-
 //show local IPs
 var comment = 'Local IP adresses';
 var delay = 3;
